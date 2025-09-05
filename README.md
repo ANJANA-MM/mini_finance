@@ -224,3 +224,17 @@ See you in the **LinkedIn network!** 🎉
 Assignment Note
 
 This project demonstrates Git operations like clone, pull, push, and creating a Pull Request—a hands-on Mini-Finance tool.
+
+---
+
+## **📅 Sprint Updates: Mini Finance Contributions**
+
+### Day 1 – Implement & Deploy
+
+- Implemented footer in HTML with basic structure.
+- Committed & pushed changes to GitHub.
+- Deployed on EC2 and verified live.
+
+![day1-footer-desktop](screenshots/ss35.PNG)
+
+
