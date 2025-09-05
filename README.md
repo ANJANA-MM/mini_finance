@@ -260,3 +260,16 @@ This project demonstrates Git operations like clone, pull, push, and creating a 
 - Deployed and captured screenshot.
 ![day4-footer-deskop](screenshots/ss73.PNG)
 
+### Day 5 – Review & Retro
+
+- Recorded 2–3 min demo of EC2 URL showing final footer updates.
+- Retro Comment:
+    What went well: Deployment to EC2 was smooth; footer updates applied correctly; accessibility improvements validated.
+
+    What could improve: Initial Lighthouse accessibility check failed; need to ensure browser foreground during tests.
+
+    Pillar & Value seen: Improved user experience & accessibility; clear provenance info ensures traceability — aligns with quality & transparency pillars.
+
+- Captured end-of-sprint burndown screenshot.
+
+![sprint-burndown](screenshots/ss80.PNG)
