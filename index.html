@@ -582,24 +582,30 @@ Bootstrap 5 Dashboard Admin Template
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-12">
-        <p class="footer-text" id="footer-text">
-          Mini Finance v1.0 — Deployed on — By Anjana Muthunayake
-          <a rel="sponsored" href="https://www.tooplate.com" target="_blank">Tooplate</a>
-        </p>
-        
-        <!-- Script goes here, after the p tag -->
-        <script>
-          const today = new Date();
-          const options = { day: '2-digit', month: 'short', year: 'numeric' };
-          const formattedDate = today.toLocaleDateString('en-GB', options);
+        <!-- Dynamic deployment info -->
+        <p class="footer-text" id="footer-text"></p>
 
-          const footer = document.getElementById('footer-text');
-          footer.innerHTML = `Mini Finance v1.0 — Deployed on ${formattedDate} — By Anjana Muthunayake <a rel="sponsored" href="https://www.tooplate.com" target="_blank">Tooplate</a>`;
-        </script>
+        <!-- Static credit line -->
+        <p class="footer-credit" aria-hidden="true">
+          Copyright © Mini Finance 2048 — Design:
+          <a href="https://www.tooplate.com" rel="sponsored" target="_blank">Tooplate</a>
+        </p>
       </div>
     </div>
   </div>
+
+  <script>
+    // Get today's date in DD MMM YYYY format
+    const today = new Date();
+    const options = { day: '2-digit', month: 'short', year: 'numeric' };
+    const formattedDate = today.toLocaleDateString('en-GB', options);
+
+    // Update the footer text dynamically
+    const footer = document.getElementById('footer-text');
+    footer.innerHTML = `Mini Finance v1.0 — Deployed on ${formattedDate} — By Anjana Muthunayake`;
+  </script>
 </footer>
+
 
 
                 </main>

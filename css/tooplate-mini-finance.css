@@ -1147,3 +1147,38 @@ strong {
   }
 }
 
+/*---------------------------------------
+  Footer – Day 3 Polish & Accessibility
+-----------------------------------------*/
+.site-footer {
+  background: #ffffff;            /* light background for contrast */
+  padding: 16px 0;                /* spacing top & bottom */
+  border-top: 1px solid #e9ecef;  /* subtle separation from content */
+  text-align: center;
+}
+
+.site-footer .footer-text {
+  color: #1f2933;                 /* dark color for WCAG AA contrast */
+  font-size: 14px;                /* readable on all devices */
+  line-height: 1.4;
+  margin: 0;
+}
+
+.site-footer .footer-credit {
+  color: #6c757d;                 /* subdued but readable credit line */
+  font-size: 12px;                /* smaller secondary info */
+  margin: 6px 0 0;
+}
+
+.site-footer a {
+  color: #1f2933;                 /* match main footer text */
+  text-decoration: underline;     /* visible link */
+}
+
+.site-footer a:hover,
+.site-footer a:focus {
+  color: #E63946;                 /* accent color on hover/focus */
+  outline: 3px solid #005fcc;     /* visible focus ring for keyboard users */
+  outline-offset: 2px;
+}
+
