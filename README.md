@@ -259,3 +259,4 @@ This project demonstrates Git operations like clone, pull, push, and creating a 
 - Verified in browser and using curl command.
 - Deployed and captured screenshot.
 ![day4-footer-deskop](screenshots/ss73.PNG)
+
