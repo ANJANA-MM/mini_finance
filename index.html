@@ -583,7 +583,8 @@ Bootstrap 5 Dashboard Admin Template
                             <div class="row">
                                 
                                 <div class="col-lg-12 col-12">
-                                    <p class="footer-text">Mini Finance v1.0 — Deployed on 05 Sep 2025 — By Anjana Muthunayake<a rel="sponsored" href="https://www.tooplate.com" target="_blank">Tooplate</a></p>
+                                    <p class="footer-text" id="footer-text">Mini Finance v1.0 — Deployed on — By Anjana Muthunayake <a rel="sponsored" href="https://www.tooplate.com" target="_blank">Tooplate</a></p>
+
                                 </div>
 
                             </div>
@@ -678,6 +679,16 @@ Bootstrap 5 Dashboard Admin Template
 
             var chart = new ApexCharts(document.querySelector("#chart"), options);
             chart.render();
+        </script>
+        <script>
+        // Get today's date in DD MMM YYYY format
+        const today = new Date();
+        const options = { day: '2-digit', month: 'short', year: 'numeric' };
+        const formattedDate = today.toLocaleDateString('en-GB', options);
+
+        // Update the footer text
+        const footer = document.getElementById('footer-text');
+        footer.innerHTML = `Mini Finance v1.0 — Deployed on ${formattedDate} — By Anjana Muthunayake <a rel="sponsored" href="https://www.tooplate.com" target="_blank">Tooplate</a>`;
         </script>
 
     </body>
