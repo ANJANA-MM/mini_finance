@@ -245,4 +245,11 @@ This project demonstrates Git operations like clone, pull, push, and creating a 
 - Added footer snippet to README for reference.
 ![day2-footer-desktop](screenshots/ss35.PNG)
 
+### Day 3 – Polish & Accessibility
+- Tweaked footer font size, spacing, and color contrast to meet ≥ AA standard.
+- Added keyboard focus ring for links.
+- Tested on mobile (narrow viewport) and desktop using DevTools.
+- Deployed & captured screenshots for both viewport sizes.
+- Verified contrast using Lighthouse accessibility audit.
+![day3-footer-desktop](screenshots/ss65.PNG)
 
