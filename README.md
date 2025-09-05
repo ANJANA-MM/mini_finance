@@ -235,6 +235,14 @@ This project demonstrates Git operations like clone, pull, push, and creating a 
 - Committed & pushed changes to GitHub.
 - Deployed on EC2 and verified live.
 
-![day1-footer-desktop](screenshots/ss35.PNG)
+![day1-footer-desktop](screenshots/ss22.PNG)
+
+### Day 2 – Make Date Dynamic
+
+- Updated footer to show the current date dynamically.
+- Committed & pushed changes.
+- Deployed to EC2 and verified.
+- Added footer snippet to README for reference.
+![day2-footer-desktop](screenshots/ss35.PNG)
 
 
