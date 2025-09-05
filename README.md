@@ -253,3 +253,9 @@ This project demonstrates Git operations like clone, pull, push, and creating a 
 - Verified contrast using Lighthouse accessibility audit.
 ![day3-footer-desktop](screenshots/ss65.PNG)
 
+### Day 4 – Provenance / Health
+
+- Added revision info in the footer (rev: 694541a).
+- Verified in browser and using curl command.
+- Deployed and captured screenshot.
+![day4-footer-deskop](screenshots/ss73.PNG)
