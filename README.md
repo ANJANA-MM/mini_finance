@@ -223,6 +223,8 @@ See you in the **LinkedIn network!** 🎉
 
 Assignment Note
 
+---
+
 This project demonstrates Git operations like clone, pull, push, and creating a Pull Request—a hands-on Mini-Finance tool.
 
 # 🏁 Mini Sprint Progress — Day 1 (Implement & Deploy)
@@ -310,7 +312,7 @@ cd mini_finance
 2️⃣ Edit *.html Files
 
 Files to edit:
-index.html, profile.html, setting.html, wallet.html, help-center.html, transaction-detail.html
+index.html, profile.html, setting.html, wallet.html, help-center.html, transation-detail.html
 
 Open the cloned repo in Visual Studio Code
 
@@ -371,12 +373,12 @@ git push origin main
 
 4️⃣ ☁️ EC2 Deployment
 
-Go to aws mgt console and Launch EC2 instance → 
+Go to AWS Management Console and launch EC2 instance.
 
-update packages
-```
+**Update packages**
+```bash
 sudo yum update -y
-```
+
 
 Install Nginx & start service
 ```
@@ -386,15 +388,18 @@ sudo systemctl enable nginx
 ```
 
 Deploy Code
-Navigate to html foler of Nginx
+Navigate to the Nginx HTML folder:
 ```
 cd /usr/share/nginx/html
 ```
 
-Remove existing files and folders int that folder:
+Remove existing files and folders in that folder:
 ```sudo rm -rf *```
 
-Clone the updated github repo into that folder:
+Install Git on the EC2 instance:
+  ```sudo yum install git -y```
+
+Clone the updated GitHub repo into that folder:
 ```
 sudo git clone https://github.com/ANJANA-MM/mini_finance.git .
 ```
@@ -402,23 +407,24 @@ sudo git clone https://github.com/ANJANA-MM/mini_finance.git .
 Set necessary permissions:
 ```
 sudo chown -R nginx:nginx /usr/share/nginx/html
+sudo chmod -R 755 /usr/share/nginx/html
 ```
 
 Access Application:
 Open browser → http://<EC2-Public-IP> or http://<EC2-Public-DNS>
-✅ Verify updated footer appears.
+✅ Verify updated footer appears in every page.
 
 📸 Screenshot
 
-Add your deployed project screenshot here.
+![day 1 footer](screenshots/day1.jpg)
 
 📊 Scrum Comment
 
+```
 Yesterday: None
-Today: Implemented footer in all *.html files, committed changes, deployed to EC2, verified and captured screenshot.
-
-Blockers: None.
-
+Today: Implemented footer in all *.html files locally, committed changes, pushed them to GitHub repository, deployed to EC2, verified, and captured screenshots.
+Blockers: Couldn't find the navigation tab for transaction-detail.html, so I typed the path to it in the address bar.
+```
 
 
 
