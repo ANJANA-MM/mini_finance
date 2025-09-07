@@ -310,8 +310,8 @@ cd mini_finance
 
 2️⃣ Edit *.html Files
 
-Files to edit:
-* index.html, profile.html, setting.html, wallet.html, help-center.html, transation-detail.html
+* Files to edit:
+index.html, profile.html, setting.html, wallet.html, help-center.html, transation-detail.html
 
 * Open the cloned repo in Visual Studio Code
 
@@ -394,28 +394,28 @@ Deploy Code
 cd /usr/share/nginx/html
 ```
 
-Remove existing files and folders in that folder:
+* Remove existing files and folders in that folder:
 ```bash 
 sudo rm -rf *
 ```
 
-Install Git on the EC2 instance:
+* Install Git on the EC2 instance:
   ```bash
   sudo yum install git -y
   ```
 
-Clone the updated GitHub repo into that folder:
+* Clone the updated GitHub repo into that folder:
 ```bash
 sudo git clone https://github.com/ANJANA-MM/mini_finance.git .
 ```
 
-Set necessary permissions:
+* Set necessary permissions:
 ```bash
 sudo chown -R nginx:nginx /usr/share/nginx/html
 sudo chmod -R 755 /usr/share/nginx/html
 ```
 
-Access Application:
+* Access Application:
 Open browser → http://<EC2-Public-IP> or http://<EC2-Public-DNS>
 ✅ Verify updated footer appears in every page.
 
