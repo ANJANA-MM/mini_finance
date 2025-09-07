@@ -430,6 +430,97 @@ Yesterday: None
 Today: Implemented footer in all *.html files locally, committed changes, pushed them to GitHub repository, deployed to EC2, verified, and captured screenshots.
 Blockers: Couldn't find the navigation tab for transaction-detail.html, so I typed the path to it in the address bar.
 ```
+---
+
+## 🚀 Mini Sprint Progress — Day 2 (Make Date Dynamic)
+
+### 🎯 Goal
+Update footer date to show the current date dynamically → Commit & push → Deploy → Verify & Screenshot
+
+---
+
+### 🛠️ Implementation Steps
+
+1️⃣ **Edit All HTML Footer Sections**  
+Update `index.html`, `profile.html`, `setting.html`, `wallet.html`, `help-center.html`, `transition-detail.html` with the following footer block:
+
+```html
+<footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-12">
+        <!-- Required footer meta (dynamic date populated by JS) -->
+        <p class="footer-meta" data-author="Anji"></p>
+
+        <!-- Keep existing copyright -->
+        <p class="copyright-text">
+          Copyright © Mini Finance 2048 - Design:
+          <a rel="sponsored" href="https://www.tooplate.com" target="_blank">Tooplate</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inline JS to dynamically set date -->
+  <script>
+    (function () {
+      try {
+        const dateStr = new Date().toLocaleDateString('en-GB', {
+          day: '2-digit',
+          month: 'short',
+          year: 'numeric'
+        });
+
+        document.querySelectorAll('.footer-meta').forEach(el => {
+          const author = el.dataset.author || 'Anji';
+          el.textContent = `Mini Finance v1.0 — Deployed on ${dateStr} — By ${author}`;
+        });
+      } catch (err) {
+        console.warn('footer-date script error:', err);
+      }
+    })();
+  </script>
+</footer>
+```
+
+✅ **Verify locally:**  
+Open `index.html` → confirm footer shows today’s date.  
+Check other pages via navigation or open them directly — confirm footer appears on all pages.
+
+---
+
+2️⃣ **Commit & Push**
+```bash
+git add .
+git commit -m "Day2: make footer date dynamic using JS, Updated README.md for Day 2"
+git push origin main
+```
+
+---
+
+3️⃣ **Deploy to EC2**
+SSH into EC2 instance → Pull latest changes:
+```bash
+cd /usr/share/nginx/html
+sudo git pull origin main
+sudo systemctl restart nginx
+```
+
+---
+
+4️⃣ **Verify Deployment**
+Open browser → `http://<EC2-Public-IP>` or `http://<EC2-Public-DNS>`  
+Check footer → confirm today’s date is shown.
+
+📸 **Screenshot:**  
+![Day 2 Footer](screenshots/day2.jpg)
+
+---
+
+### 📊 Scrum Comment
+**Yesterday:** Implemented static footer, deployed to EC2.  
+**Today:** Made footer date dynamic, committed & deployed changes, verified on EC2.  
+**Blockers:** None.
 
 
 

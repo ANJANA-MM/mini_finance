@@ -447,7 +447,8 @@ Bootstrap 5 Dashboard Admin Template
                                     <div class="ms-auto">
                                         <small>05/12/2023</small>
                                         <strong class="d-block text-danger">
-                                            <span class="me-1">-</span> $250
+                                            <span class="me-1">-</span>
+                                            $250
                                         </strong>
                                     </div>
                                 </div>
@@ -464,7 +465,8 @@ Bootstrap 5 Dashboard Admin Template
                                     <div class="ms-auto">
                                         <small>22/8/2023</small>
                                         <strong class="d-block text-success">
-                                            <span class="me-1">+</span> $280
+                                            <span class="me-1">+</span>
+                                            $280
                                         </strong>
                                     </div>
                                 </div>
@@ -481,7 +483,8 @@ Bootstrap 5 Dashboard Admin Template
                                     <div class="ms-auto">
                                         <small>22/8/2023</small>
                                         <strong class="d-block text-success">
-                                            <span class="me-1">+</span> $280
+                                            <span class="me-1">+</span>
+                                            $280
                                         </strong>
                                     </div>
                                 </div>
@@ -515,9 +518,9 @@ Bootstrap 5 Dashboard Admin Template
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-12 col-12">
-                                    <!-- Required footer meta (single-line exact text) -->
-                                    <p class="footer-meta">Mini Finance v1.0 — Deployed on 07 Sep 2025 — By Anjana Muthunayake</p>
-                                    <!-- KEEP existing copyright text -->
+                                    <!-- Required footer meta -->
+                                    <p class="footer-meta" data-author="Anjana Muthunayake"></p>
+                                    <!-- Keep existing copyright -->
                                     <p class="copyright-text">
                                         Copyright © Mini Finance 2048 - Design:
                                         <a rel="sponsored" href="https://www.tooplate.com" target="_blank">Tooplate</a>
@@ -525,6 +528,25 @@ Bootstrap 5 Dashboard Admin Template
                                 </div>
                             </div>
                         </div>
+                        <!-- Inline JS to populate the date dynamically -->
+                        <script>
+    (function () {
+      try {
+        const dateStr = new Date().toLocaleDateString('en-GB', {
+          day: '2-digit',
+          month: 'short',
+          year: 'numeric'
+        });
+
+        document.querySelectorAll('.footer-meta').forEach(el => {
+          const author = el.dataset.author || 'Anjiana Muthunayake';
+          el.textContent = `Mini Finance v1.0 — Deployed on ${dateStr} — By ${author}`;
+        });
+      } catch (err) {
+        console.warn('footer-date script error:', err);
+      }
+    })();
+                        </script>
                     </footer>
                 </main>
             </div>
