@@ -227,12 +227,8 @@ Assignment Note
 
 This project demonstrates Git operations like clone, pull, push, and creating a Pull Request—a hands-on Mini-Finance tool.
 
-# 🏁 Mini Sprint Progress — Day 1 (Implement & Deploy)
-
-## 🎯 Goal
-Add footer with version, deploy date, and author → Deploy to EC2 → Verify & Screenshot
-
 ---
+
 ## Assignment: Run a 5-Day Mini-Sprint in Jira and Ship an Increment
 
 ### ✅ Jira Setup
@@ -249,7 +245,7 @@ Add footer with version, deploy date, and author → Deploy to EC2 → Verify & 
 Show `Mini Finance v1.0 — Deployed on <DD Mon YYYY> — By <Student Name>` in the footer of all pages.
 
 **Acceptance Criteria (Gherkin):**
-```gherkin
+```bash gherkin
 Scenario: Footer shows version and deploy date
   Given I open the homepage
   When the page loads
@@ -258,9 +254,11 @@ Scenario: Footer shows version and deploy date
 
 Story point estimate: 1 
 Labels: frontend
+```
 
 **Create sub tasks under the story and add below descriptions:**
 
+```bash
 Day 1 – Implement & Deploy
 Implement footer (HTML/CSS)
 Commit & push
@@ -287,8 +285,9 @@ Day 5 – Review & Retro
 Record 2–3 min demo of EC2 URL
 Write Retro comment (What went well / Improve / Pillar & Value seen)
 Capture end-of-sprint Burndown screenshot
+```
 
-Move the story from Backlog to Sprint 1
+* Move the story from Backlog to Sprint 1
 
 ## 📅 Day 1 – Implement & Deploy
 
@@ -298,11 +297,11 @@ Move the story from Backlog to Sprint 1
 
 ### 1️⃣ Fork & Clone
 
-Go to main GitHub repo (**link**)  
-Fork it under your GitHub account  
-Go to forked GitHub repo  
-Copy the GitHub repo link  
-Go to your local machine terminal and clone the forked GitHub repo:
+* Go to main GitHub repo (**link**)  
+* Fork it under your GitHub account  
+* Go to forked GitHub repo  
+* Copy the GitHub repo link  
+* Go to your local machine terminal and clone the forked GitHub repo:
 
 ```bash
 git clone https://github.com/ANJANA-MM/mini_finance.git
@@ -312,16 +311,16 @@ cd mini_finance
 2️⃣ Edit *.html Files
 
 Files to edit:
-index.html, profile.html, setting.html, wallet.html, help-center.html, transation-detail.html
+* index.html, profile.html, setting.html, wallet.html, help-center.html, transation-detail.html
 
-Open the cloned repo in Visual Studio Code
+* Open the cloned repo in Visual Studio Code
 
-Open each *.html file
+* Open each *.html file
 
-Update the footer section as follows:
+* Update the footer section as follows:
 
-Before edit:
-```
+* Before edit:
+```bash
 <footer class="site-footer">
   <div class="container">
     <div class="row">
@@ -334,8 +333,10 @@ Before edit:
     </div>
   </div>
 </footer>
+```
 
 After edit:
+```bash
 <footer class="site-footer">
   <div class="container">
     <div class="row">
@@ -352,20 +353,20 @@ After edit:
     </div>
   </div>
 </footer>
-
+```
 
 ✅ Verify Locally
 
-Save the changes
+* Save the changes
 
-Open each *.html file in browser (or open index.html first and navigate using buttons)
+* Open each *.html file in browser (or open index.html first and navigate using buttons)
 
-Confirm footer appears correctly on every page
+* Confirm footer appears correctly on every page
 
-If not, make the necessary changes and check again
+* If not, make the necessary changes and check again
 
 3️⃣ Commit & Push
-```
+```bash
 git add .
 git commit -m "Day1: add Mini Finance footer with version, date and author, updated README.md for day 1"
 git push origin main
@@ -373,39 +374,43 @@ git push origin main
 
 4️⃣ ☁️ EC2 Deployment
 
-Go to AWS Management Console and launch EC2 instance.
+* Go to AWS Management Console and launch EC2 instance.
 
 **Update packages**
 ```bash
 sudo yum update -y
-
-
-Install Nginx & start service
 ```
+
+* Install Nginx & start service
+```bash
 sudo yum install nginx -y
 sudo systemctl start nginx
 sudo systemctl enable nginx
 ```
 
 Deploy Code
-Navigate to the Nginx HTML folder:
-```
+* Navigate to the Nginx HTML folder:
+```bash
 cd /usr/share/nginx/html
 ```
 
 Remove existing files and folders in that folder:
-```sudo rm -rf *```
+```bash 
+sudo rm -rf *
+```
 
 Install Git on the EC2 instance:
-  ```sudo yum install git -y```
+  ```bash
+  sudo yum install git -y
+  ```
 
 Clone the updated GitHub repo into that folder:
-```
+```bash
 sudo git clone https://github.com/ANJANA-MM/mini_finance.git .
 ```
 
 Set necessary permissions:
-```
+```bash
 sudo chown -R nginx:nginx /usr/share/nginx/html
 sudo chmod -R 755 /usr/share/nginx/html
 ```
@@ -420,7 +425,7 @@ Open browser → http://<EC2-Public-IP> or http://<EC2-Public-DNS>
 
 📊 Scrum Comment
 
-```
+```bash
 Yesterday: None
 Today: Implemented footer in all *.html files locally, committed changes, pushed them to GitHub repository, deployed to EC2, verified, and captured screenshots.
 Blockers: Couldn't find the navigation tab for transaction-detail.html, so I typed the path to it in the address bar.
