@@ -224,3 +224,203 @@ See you in the **LinkedIn network!** 🎉
 Assignment Note
 
 This project demonstrates Git operations like clone, pull, push, and creating a Pull Request—a hands-on Mini-Finance tool.
+
+# 🏁 Mini Sprint Progress — Day 1 (Implement & Deploy)
+
+## 🎯 Goal
+Add footer with version, deploy date, and author → Deploy to EC2 → Verify & Screenshot
+
+---
+## Assignment: Run a 5-Day Mini-Sprint in Jira and Ship an Increment
+
+### ✅ Jira Setup
+- **Create new project in Jira:** `Mini Finance`
+- **Create new epic:** Created  
+- **Create new sprint:**  
+- **Sprint Goal:** *Ship a visible Mini Finance footer (version + date + author) to EC2 and document progress daily.*
+- **Create new story in Backlog:** 
+
+### 🧾 Story Details
+
+**Summary:** Add footer with version and deploy date  
+**Description:**  
+Show `Mini Finance v1.0 — Deployed on <DD Mon YYYY> — By <Student Name>` in the footer of all pages.
+
+**Acceptance Criteria (Gherkin):**
+```gherkin
+Scenario: Footer shows version and deploy date
+  Given I open the homepage
+  When the page loads
+  Then I see the exact text "Mini Finance v1.0 — Deployed on <DD Mon YYYY> — By <Student Name>"
+  And this is visible on the public EC2 URL
+
+Story point estimate: 1 
+Labels: frontend
+
+**Create sub tasks under the story and add below descriptions:**
+
+Day 1 – Implement & Deploy
+Implement footer (HTML/CSS)
+Commit & push
+Deploy to EC2
+Verify on EC2 & screenshot
+
+Day 2 – Make date dynamic
+Update with the today’s date (e.g., 26 Aug 2025)
+Commit & push
+Deploy & screenshot footer + code snippet in README
+
+Day 3 – Polish & Accessibility
+Tweak footer font size/spacing; ensure contrast ≥ AA
+Test mobile (narrow viewport) & desktop (Use Chatgpt)
+Deploy & screenshot on both sizes
+
+Day 4 – Provenance / Health (Use ChatGPT)
+Add short commit hash or env tag (e.g., rev: abc123)
+(If not comfortable, add simple /healthz page returning “OK” instead)
+Verify with browser and curl
+Deploy & screenshot (footer and/or health check)
+
+Day 5 – Review & Retro
+Record 2–3 min demo of EC2 URL
+Write Retro comment (What went well / Improve / Pillar & Value seen)
+Capture end-of-sprint Burndown screenshot
+
+Move the story from Backlog to Sprint 1
+
+## 📅 Day 1 – Implement & Deploy
+
+### 🛠️ Implementation Steps
+
+---
+
+### 1️⃣ Fork & Clone
+
+Go to main GitHub repo (**link**)  
+Fork it under your GitHub account  
+Go to forked GitHub repo  
+Copy the GitHub repo link  
+Go to your local machine terminal and clone the forked GitHub repo:
+
+```bash
+git clone https://github.com/ANJANA-MM/mini_finance.git
+cd mini_finance
+```
+
+2️⃣ Edit *.html Files
+
+Files to edit:
+index.html, profile.html, setting.html, wallet.html, help-center.html, transaction-detail.html
+
+Open the cloned repo in Visual Studio Code
+
+Open each *.html file
+
+Update the footer section as follows:
+
+Before edit:
+```
+<footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-12">
+        <p class="copyright-text">
+          Copyright © Mini Finance 2048 - Design:
+          <a rel="sponsored" href="https://www.tooplate.com" target="_blank">Tooplate</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+After edit:
+<footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-12">
+        <!-- Required footer meta -->
+        <p class="footer-meta">Mini Finance v1.0 — Deployed on 07 Sep 2025 — By Anji</p>
+
+        <!-- Keep existing copyright -->
+        <p class="copyright-text">
+          Copyright © Mini Finance 2048 - Design:
+          <a rel="sponsored" href="https://www.tooplate.com" target="_blank">Tooplate</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+✅ Verify Locally
+
+Save the changes
+
+Open each *.html file in browser (or open index.html first and navigate using buttons)
+
+Confirm footer appears correctly on every page
+
+If not, make the necessary changes and check again
+
+3️⃣ Commit & Push
+```
+git add .
+git commit -m "Day1: add Mini Finance footer with version, date and author, updated README.md for day 1"
+git push origin main
+```
+
+4️⃣ ☁️ EC2 Deployment
+
+Go to aws mgt console and Launch EC2 instance → 
+
+update packages
+```
+sudo yum update -y
+```
+
+Install Nginx & start service
+```
+sudo yum install nginx -y
+sudo systemctl start nginx
+sudo systemctl enable nginx
+```
+
+Deploy Code
+Navigate to html foler of Nginx
+```
+cd /usr/share/nginx/html
+```
+
+Remove existing files and folders int that folder:
+```sudo rm -rf *```
+
+Clone the updated github repo into that folder:
+```
+sudo git clone https://github.com/ANJANA-MM/mini_finance.git .
+```
+
+Set necessary permissions:
+```
+sudo chown -R nginx:nginx /usr/share/nginx/html
+```
+
+Access Application:
+Open browser → http://<EC2-Public-IP> or http://<EC2-Public-DNS>
+✅ Verify updated footer appears.
+
+📸 Screenshot
+
+Add your deployed project screenshot here.
+
+📊 Scrum Comment
+
+Yesterday: None
+Today: Implemented footer in all *.html files, committed changes, deployed to EC2, verified and captured screenshot.
+
+Blockers: None.
+
+
+
+
+
+
