@@ -518,14 +518,14 @@ Bootstrap 5 Dashboard Admin Template
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-12 col-12">
-                                    <!-- Required footer meta (dynamic date populated by JS) -->
+                                    <!-- Footer meta with dynamic date + rev hash -->
                                     <p class="footer-meta">
                                         Mini Finance v1.0 — Deployed on
                                         <span id="deploy-date"></span>
                                         — By Anjana Muthunayake —
                                         <span id="rev-placeholder"></span>
                                     </p>
-                                    <!-- Keep existing copyright -->
+                                    <!-- Copyright -->
                                     <p class="copyright-text">
                                         Copyright © Mini Finance 2048 - Design:
                                         <a
@@ -538,50 +538,81 @@ Bootstrap 5 Dashboard Admin Template
                                 </div>
                             </div>
                         </div>
-                        <!-- Inline JS to dynamically set date -->
+                        <!-- Inline JS for dynamic date + rev hash -->
                         <script>
-  (function () {
-    try {
-      // ✅ Set deploy date dynamically
-      const dateStr = new Date().toLocaleDateString('en-GB', {
-        day: '2-digit',
-        month: 'short',
-        year: 'numeric'
-      });
-      document.getElementById('deploy-date').textContent = dateStr;
+    (function () {
+      try {
+        // ✅ Set deploy date dynamically
+        const dateStr = new Date().toLocaleDateString('en-GB', {
+          day: '2-digit',
+          month: 'short',
+          year: 'numeric'
+        });
+        document.getElementById('deploy-date').textContent = dateStr;
 
-      // ✅ Fetch rev.txt and display revision
-      fetch('rev.txt')
-        .then(response => response.text())
-        .then(rev => {
-          document.getElementById('rev-placeholder').textContent = `rev: ${rev.trim()}`;
-        })
-        .catch(err => console.warn('Failed to load rev:', err));
-    } catch (err) {
-      console.warn('footer script error:', err);
-    }
-  })();
-</script>
-
-                        <!-- Styles for contrast and readability -->
+        // ✅ Fetch rev.txt and sanitize it
+        fetch('rev.txt')
+          .then(response => response.text())
+          .then(rev => {
+            const cleanRev = rev.replace(/[\uFEFF]/g, '').replace(/\r/g, '').trim();
+            document.getElementById('rev-placeholder').textContent = `rev: ${cleanRev}`;
+          })
+          .catch(err => console.warn('Failed to load rev:', err));
+      } catch (err) {
+        console.warn('footer script error:', err);
+      }
+    })();
+                        </script>
+                        <!-- Footer styling -->
                         <style>
-  .footer-meta,
-  .copyright-text {
-    color: black;       /* High contrast text */
-    font-weight: bold;  /* Make it bold */
-    margin: 0.2em 0;
-  }
+    .site-footer {
+      background-color: #ADD8E6; /* Light blue */
+      color: #000000;             /* Black text */
+      font-family: "Segoe UI", Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      padding: 20px 30px;
+      text-align: center;
+      border-radius: 12px;
+      position: relative;
+      z-index: 10;
+    }
 
-  /* Make Tooplate dark blue */
-  .copyright-text a.tooplate-link {
-    font-weight: normal;   /* Not bold */
-    color: #0a3d91 !important; /* Dark blue, force override */
-    text-decoration: none; /* Remove underline */
-  }
+    .footer-meta,
+    .copyright-text {
+      color: black;       
+      font-weight: bold;  
+      margin: 0.2em 0;
+    }
 
-  .copyright-text a.tooplate-link:hover {
-    text-decoration: underline; /* Subtle hover effect */
-  }
+    /* Make Tooplate dark blue */
+    .copyright-text a.tooplate-link {
+      font-weight: normal;
+      color: #0a3d91 !important;
+      text-decoration: none;
+    }
+
+    .copyright-text a.tooplate-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer paragraphs spacing */
+    .site-footer p {
+      margin: 5px 0;
+    }
+
+    /* Footer rev text styling */
+    .footer-meta #rev-placeholder {
+      font-weight: bold;
+    }
+
+    /* Mobile view */
+    @media screen and (max-width: 480px) {
+      .site-footer {
+        font-size: 13px;
+        padding: 15px 20px;
+      }
+    }
                         </style>
                     </footer>
                 </main>
