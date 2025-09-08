@@ -949,17 +949,62 @@ strong {
 }
 
 
-/*---------------------------------------
-  SITE FOOTER              
------------------------------------------*/
+/* SITE FOOTER - FIXED CONTRAST & FONT WEIGHTS */
 .site-footer {
-  padding-right: 20px;
-  padding-left: 20px;
+  background-color: #ADD8E6; /* Light blue */
+  color: #000000;             /* Default text color: black */
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 20px 30px;
+  text-align: center;
+  border-radius: 12px;
+  position: relative;
+  z-index: 10;
 }
 
-.copyright-text {
-  font-size: var(--copyright-font-size);
+/* Tooplate text - dark blue, normal weight */
+.site-footer .tooplate-text {
+  color: #00008B;   /* Dark blue */
+  font-weight: normal;
 }
+
+/* Other text - black, bold for contrast */
+.site-footer .footer-text {
+  color: #000000;   /* Black */
+  font-weight: bold;
+}
+
+/* Footer links */
+.site-footer a {
+  color: #000000;    /* Black */
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.site-footer a:hover {
+  color: #1A1A7A;   /* Slightly darker blue on hover */
+  text-decoration: underline;
+}
+
+/* Footer paragraphs spacing */
+.site-footer p {
+  margin: 5px 0;
+}
+
+/* Mobile view */
+@media screen and (max-width: 480px) {
+  .site-footer {
+    font-size: 13px;
+    padding: 15px 20px;
+  }
+}
+
+
+
+
+
 
 
 /*---------------------------------------

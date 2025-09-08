@@ -342,7 +342,7 @@ After edit:
     <div class="row">
       <div class="col-lg-12 col-12">
         <!-- Required footer meta -->
-        <p class="footer-meta">Mini Finance v1.0 — Deployed on 07 Sep 2025 — By Anji</p>
+        <p class="footer-meta">Mini Finance v1.0 — Deployed on 07 Sep 2025 — By Anjana Muthunayake</p>
 
         <!-- Keep existing copyright -->
         <p class="copyright-text">
@@ -450,7 +450,7 @@ Update `index.html`, `profile.html`, `setting.html`, `wallet.html`, `help-center
     <div class="row">
       <div class="col-lg-12 col-12">
         <!-- Required footer meta (dynamic date populated by JS) -->
-        <p class="footer-meta" data-author="Anji"></p>
+        <p class="footer-meta" data-author="Anjana Muthunayake"></p>
 
         <!-- Keep existing copyright -->
         <p class="copyright-text">
@@ -472,7 +472,7 @@ Update `index.html`, `profile.html`, `setting.html`, `wallet.html`, `help-center
         });
 
         document.querySelectorAll('.footer-meta').forEach(el => {
-          const author = el.dataset.author || 'Anji';
+          const author = el.dataset.author || 'Anjana Muthunayake';
           el.textContent = `Mini Finance v1.0 — Deployed on ${dateStr} — By ${author}`;
         });
       } catch (err) {
@@ -520,9 +520,93 @@ Check footer → confirm today’s date is shown.
 ### 📊 Scrum Comment
 **Yesterday:** Implemented static footer, deployed to EC2.  
 **Today:** Made footer date dynamic, committed & deployed changes, verified on EC2.  
-**Blockers:** None.
+**Blockers:** Faced "permission denied" issue when pulling latest code from GitHub on EC2.  
+Resolved by temporarily changing `/usr/share/nginx/html` ownership to `ec2-user`, pulling code, then switching back to `nginx`.
 
+## 🎨 Mini Sprint Progress — Day 3 (Polish & Accessibility)
 
+### 🎯 Goal  
+Tweak footer font size & spacing, ensure contrast ≥ **AA**, test on both mobile & desktop, deploy, and take screenshots.
 
+---
 
+### 🛠️ Implementation Steps  
 
+1️⃣ **Update Footer Styles**  
+Edited `tooplate-mini-finance.css` to improve contrast and spacing:
+
+```css
+/* SITE FOOTER - FIXED CONTRAST & FONT WEIGHTS */
+.site-footer {
+  background-color: #ADD8E6; /* Light blue background for good contrast */
+  color: #000000;           /* Default text color: black */
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 20px 30px;
+  text-align: center;
+  border-radius: 12px; /* Soft edges for better look */
+  position: relative;
+  z-index: 10;
+}
+
+/* Footer text - bold for clarity */
+.footer-meta,
+.copyright-text {
+  color: black;
+  font-weight: bold;
+  margin: 0.2em 0;
+}
+
+/* Tooplate link - dark blue, not bold */
+.copyright-text a.tooplate-link {
+  font-weight: normal;
+  color: #0a3d91 !important;
+  text-decoration: none;
+}
+
+.copyright-text a.tooplate-link:hover {
+  text-decoration: underline;
+}
+
+✅ Result:
+
+* High contrast (light background + dark text) → passes WCAG AA
+
+* Footer text bold except for Tooplate (kept normal weight for hierarchy)
+
+* Spacing improved for better readability on desktop & mobile
+
+2️⃣ **Commit & Push**
+
+```bash
+git add .
+git commit -m "Day3: improve footer contrast, spacing, and font weights for accessibility"
+git push origin main
+```
+
+3️⃣ **Deploy to EC2**
+
+```bash
+cd /usr/share/nginx/html
+sudo git pull origin main
+sudo systemctl restart nginx
+```
+
+4️⃣ **Verify & Screenshot**
+
+✅ Checked on desktop — text is now clear and easy to read
+
+✅ Resized browser to <480px — verified font size adjusts and spacing is preserved
+
+📸 Screenshots:
+
+Desktop:
+
+Mobile:
+
+**Scrum Comment**
+
+* Yesterday: Made footer date dynamic & deployed successfully.
+* Today: Improved footer styling (contrast, font weight, spacing), tested on desktop + mobile, deployed changes.
+* Blockers: None 

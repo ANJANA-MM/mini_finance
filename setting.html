@@ -463,21 +463,23 @@ Bootstrap 5 Dashboard Admin Template
                         </div>
                     </div>
                     <footer class="site-footer">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12 col-12">
-                                    <!-- Required footer meta -->
-                                    <p class="footer-meta" data-author="Anjana Muthunayake"></p>
-                                    <!-- Keep existing copyright -->
-                                    <p class="copyright-text">
-                                        Copyright © Mini Finance 2048 - Design:
-                                        <a rel="sponsored" href="https://www.tooplate.com" target="_blank">Tooplate</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Inline JS to populate the date dynamically -->
-                        <script>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-12">
+        <!-- Required footer meta (dynamic date populated by JS) -->
+        <p class="footer-meta" data-author="Anjana Muthunayake"></p>
+
+        <!-- Keep existing copyright -->
+        <p class="copyright-text">
+          Copyright © Mini Finance 2048 - Design:
+          <a rel="sponsored" href="https://www.tooplate.com" target="_blank" class="tooplate-link">Tooplate</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inline JS to dynamically set date -->
+  <script>
     (function () {
       try {
         const dateStr = new Date().toLocaleDateString('en-GB', {
@@ -494,8 +496,30 @@ Bootstrap 5 Dashboard Admin Template
         console.warn('footer-date script error:', err);
       }
     })();
-                        </script>
-                    </footer>
+  </script>
+
+  <!-- Styles for contrast and readability -->
+  <style>
+  .footer-meta,
+  .copyright-text {
+    color: black;       /* High contrast text */
+    font-weight: bold;  /* Make it bold */
+    margin: 0.2em 0;
+  }
+
+  /* Make Tooplate dark blue */
+  .copyright-text a.tooplate-link {
+    font-weight: normal;   /* Not bold */
+    color: #0a3d91 !important; /* Dark blue, force override */
+    text-decoration: none; /* Remove underline */
+  }
+
+  .copyright-text a.tooplate-link:hover {
+    text-decoration: underline; /* Subtle hover effect */
+  }
+</style>
+</footer>
+
                 </main>
             </div>
         </div>
