@@ -771,8 +771,7 @@ Pillar & Vaue seen:
 
 ### 📸 Screenshots / Evidence
 
-- **Demo Video (Desktop):** [Watch here](Videos/desktop-demo.mp4)
-- **Demo Video (Mobile):** [Watch here](Videos/mobile-view-demo.mp4)
+- **Demo Video folder link** [Watch here](https://drive.google.com/drive/folders/1ezB80cjTUx1Zri2MySHrll-U6_bOFvIG?usp=sharing)
 
 
 - **Burndown Chart:** 
