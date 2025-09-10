@@ -602,12 +602,189 @@ sudo systemctl restart nginx
 📸 Screenshots:
 
 Desktop:
+![Desktop view](screenshots/day3-desktop.jpg)
 
 Mobile:
-
+![Mobile view](screenshots/day3-mobile.jpg)
 **Scrum Comment**
 
 * Yesterday: Made footer date dynamic & deployed successfully.
 * Today: Improved footer styling (contrast, font weight, spacing), tested on desktop + mobile, deployed changes.
 * Blockers: None 
 
+---
+
+## 🧾 Mini Sprint Progress — Day 4 (Provenance / Health)
+
+### 🎯 Goal
+Add short commit hash or env tag to the footer for provenance, verify via browser & `curl`, deploy, and capture screenshots.
+
+---
+
+### 🛠️ Implementation Steps
+
+1️⃣ **Update Footer Code**
+
+Edited the footer in all HTML files to include revision placeholder:
+
+```html
+<p class="footer-meta">
+  Mini Finance v1.0 — Deployed on
+  <span id="deploy-date"></span>
+    — By Anjana Muthunayake —
+  <span id="rev-placeholder"></span>
+</p>
+```
+
+Updated JS to fetch and display commit hash dynamically from rev.txt:
+
+```html
+<script>
+    (function () {
+      try {
+        // ✅ Set deploy date dynamically
+        const dateStr = new Date().toLocaleDateString('en-GB', {
+          day: '2-digit',
+          month: 'short',
+          year: 'numeric'
+        });
+        document.getElementById('deploy-date').textContent = dateStr;
+
+        // ✅ Fetch rev.txt and sanitize it
+        fetch('rev.txt')
+          .then(response => response.text())
+          .then(rev => {
+            const cleanRev = rev.replace(/[\uFEFF]/g, '').replace(/\r/g, '').trim();
+            document.getElementById('rev-placeholder').textContent = `rev: ${cleanRev}`;
+          })
+          .catch(err => console.warn('Failed to load rev:', err));
+      } catch (err) {
+        console.warn('footer script error:', err);
+      }
+    })();
+</script>
+```
+
+✅ Result:
+
+* Footer now shows commit hash.
+
+* Deploy date remains dynamic as implemented on Day 3.
+
+2️⃣ **Create rev.txt**
+
+```html
+# Get short commit hash and write to rev.txt (without BOM)
+git rev-parse --short HEAD > rev.txt
+```
+
+3️⃣ **Commit & Push**
+
+```bash
+git add .
+git commit -m "Day4: add commit hash to footer"
+git push origin main
+```
+
+4️⃣ **Deploy to EC2**
+
+```bash
+cd /usr/share/nginx/html
+sudo git pull origin main
+sudo systemctl restart nginx
+```
+
+5️⃣ **Verify**
+
+✅ Opened browser and confirmed footer shows commit hash correctly.
+
+✅ Verified with curl:
+
+📸 Screenshot:
+
+![Browser footer with commit hash](screenshots/day4.jpg)
+
+Scrum Comment
+
+Yesterday :
+* Tweaked footer font size/spacing, ensured contrast ≥ AA, tested on mobile/desktop, and deployed with screenshots.
+
+Today :
+* Added commit hash to footer, verified via browser + curl, deployed, and captured screenshots.
+
+Blockers: 
+* Faced BOM (Byte Order Mark) issue in rev.txt that caused weird symbols in footer.
+* Fixed it by saving file without BOM and redeploying.
+
+## 🎬 Mini Sprint Progress — Day 5 (Review & Retro)
+
+### 🎯 Goal
+- Record 2–3 min demo of EC2 URL
+- Write Retro comment (What went well / Improve / Pillar & Value seen)
+- Capture end-of-sprint Burndown screenshot
+
+---
+
+### 🛠️ Implementation Steps
+
+1️⃣ **Record Demo Video**
+- Open EC2 URL in browser
+- Navigate through key pages: `index.html`, `wallet.html`, `profile.html`, `help-center.html`, `setting.html`, `transation-detail.html`
+- Show footer with dynamic date + commit hash 
+
+📌 **Tips**
+- Keep narration brief and clear
+- Ensure URL and footer are visible
+
+---
+
+2️⃣ **Retro Comment**
+What went well:
+- Deployment to EC2 went smoothly, 
+- Dynamic footer working, 
+- Daily commits visible, 
+- mobile + desktop verified
+
+What could be improved:
+- Version Control & Collaboration: Use feature branches for each day/task instead of committing directly to main.
+- Ensure commit messages follow a consistent, descriptive format.
+- Testing & Verification: Add automated tests for dynamic footer.
+- Verify cross-browser compatibility (Chrome, Firefox, Edge) before submission. 
+- Plan time better for encoding/BOM issues.
+
+Pillar & Vaue seen:
+- Quality & Accessibility: Improved UX and traceability.
+- Collaboration: Clear daily updates and documentation.
+- Ownership: Took initiative to fix issues and ensure deployment.
+
+---
+
+3️⃣ **Capture Burndown Screenshot**
+- Open Jira Burndown chart at **end of sprint**
+- Screenshot showing completed tasks and progress over the 5 days
+
+📌 **Tips**
+- Include axes/dates for clarity
+- Ensure all subtasks are shown as done
+
+---
+
+### 📸 Screenshots / Evidence
+- **Demo Video:** [Insert link or local file path]
+
+<video controls src="Videos/desktop-demo.mp4" title="Desktop Demo Video"></video>
+
+<video controls src="Videos/mobile-view-demo.mp4" title="Mobile View Demo Video"></video>
+
+
+- **Burndown Chart:** 
+![Burndown Screenshot](screenshots/day5-burndown-chart.jpg)
+
+
+
+---
+
+### ✅ Scrum Comment
+- **Yesterday:** Added commit hash to footer and verified dynamically  
+- **Today:** Recorded demo, wrote retro, captured end-of-sprint burndown  
+- **Blockers:** None
