@@ -770,11 +770,9 @@ Pillar & Vaue seen:
 ---
 
 ### 📸 Screenshots / Evidence
-- **Demo Video:** [Insert link or local file path]
 
-<video controls src="Videos/desktop-demo.mp4" title="Desktop Demo Video"></video>
-
-<video controls src="Videos/mobile-view-demo.mp4" title="Mobile View Demo Video"></video>
+- **Demo Video (Desktop):** [Watch here](Videos/desktop-demo.mp4)
+- **Demo Video (Mobile):** [Watch here](Videos/mobile-view-demo.mp4)
 
 
 - **Burndown Chart:** 
